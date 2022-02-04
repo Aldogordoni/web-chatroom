@@ -15,22 +15,22 @@ CREATE TABLE user (
 	PRIMARY KEY (user_id)
 );
 
+-- create chat table
+create table chat (
+	chat_id int(2),
+    name char(50),
+    description char(256),
+	PRIMARY KEY (chat_id)
+);
+
 -- create message table
 CREATE TABLE message (
 	msg_id int(6) unsigned auto_increment,
 	user_id int(6) unsigned,
-    chat_id char(2),
+    chat_id int(2),
 	time datetime,
     text text,
-	PRIMARY KEY (user_id, msg_id),
+	PRIMARY KEY (msg_id),
     FOREIGN KEY (user_id) REFERENCES user(user_id),
     FOREIGN KEY (chat_id) REFERENCES chat(chat_id)
-);
-
--- create chat table
-create table chat (
-	chat_id char(2),
-    name char(50),
-    description char(256),
-	PRIMARY KEY (chat_id)
 );
