@@ -16,6 +16,7 @@
     if(isset($_POST["message"])){
         $message = $_POST["message"];
         
+        #specific time format to be used
         $time = date("Y-m-d H:i:s");
         $sql = "INSERT INTO message VALUE (NULL, 1, 0, '$time', '$message')";
         $query = mysqli_query($conn, $sql);
